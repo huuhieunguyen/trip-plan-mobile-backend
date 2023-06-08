@@ -63,7 +63,7 @@ func main() {
 	fmt.Println("Successfully connected and pinged.")
 
 	router := gin.Default()
-	db := client.Database("egreenbin")
+	db := client.Database("trip_planning")
 	appContext := database.NewAppContext(db)
 	router.Use(middlewares.Recover(appContext))
 

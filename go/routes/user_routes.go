@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/huuhieunguyen/trip-plan-mobile-backend/go/handlers"
+	// "github.com/huuhieunguyen/trip-plan-mobile-backend/go/handlers"
 	"github.com/huuhieunguyen/trip-plan-mobile-backend/go/services"
 
 	"github.com/gin-gonic/gin"
@@ -26,12 +26,14 @@ import (
 
 func UserRoutes(gin *gin.RouterGroup, db *mongo.Database) {
 
-	handler := handlers.UserHandlers{
-		Handler: services.UserServices{
-			DB: db,
-		},
+	// handler := handlers.UserHandlers{
+	// 	Handler: services.UserServices{
+	// 		DB: db,
+	// 	},
+	// }
+	handler := services.UserServices{
+		DB: db,
 	}
-
 	users := gin.Group("/users")
 	{
 		users.GET("", handler.GetUsers)
